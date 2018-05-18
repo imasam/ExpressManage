@@ -244,21 +244,21 @@ public class Dao {
     /*
      * 查找指定单号的快递
      */
-    public ArrayList<RouteInfo> queryExpress(String _expressNo){
-        ArrayList<RouteInfo> rts = new ArrayList<>();
+    public ExpressInfo queryExpress(String _expressNo){
+        ExpressInfo rts = new ExpressInfo();
 
-        Session session = HibernateSessionFactory.getSession();/*
-        String hql = "from RouteInfo where RouteInfo.expressNo = ? order by ";
+        Session session = HibernateSessionFactory.getSession();
+        String hql = "from ExpressInfo where expressNo = ?";
         Query query = session.createQuery(hql);
         query.setString(0,_expressNo);
         List list = query.list();
 
         for(int i = 0;i < list.size();i++){
-            express = (RouteInfo) list.get(i);
-        }*/
+            rts = (ExpressInfo) list.get(i);
+        }
 
         session.close();
-        return express;
+        return rts;
     }
 
     /*

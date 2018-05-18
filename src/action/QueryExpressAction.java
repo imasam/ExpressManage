@@ -16,7 +16,7 @@ public class QueryExpressAction {
     public String execute() throws Exception{
         boolean succeed = false;
 
-        RouteInfo express = Dao.instance().queryExpress(expressNo);
+        ExpressInfo express = Dao.instance().queryExpress(expressNo);
 
         HttpServletResponse response = ServletActionContext.getResponse();
         response.setHeader("content-type","text/html;charset=UTF-8");
@@ -32,9 +32,6 @@ public class QueryExpressAction {
         }
         else
             return "success";
-
-
-
     }
 
     public String getExpressNo() { return expressNo; }

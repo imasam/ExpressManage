@@ -4,21 +4,22 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-    <package name="structs2" extends="struts-default">
-        <action name="login" class="action.LoginAction">
-            <result name="success">/index.jsp</result>
+    <package name="struts2" extends="struts-default">
+        <action name="login" class="loginAction">
+            <result name="success" type="redirect">/index.jsp</result>
         </action>
 
-        <action name="register" class="action.RegisterAction">
+        <action name="register" class="registerAction">
         </action>
 
-        <action name="newExpress" class="action.NewExpressAction">
+        <action name="newExpress" class="newExpressAction">
         </action>
 
-        <action name="queryExpress" class="action.QueryExpressAction">
-            <result name="success">/expressInfo.jsp</result>
+        <action name="queryExpress" class="queryExpressAction">
+            <result name="success" type="redirect">/expressInfo.jsp</result>
         </action>
 
-
+        <action name="updateExpress" class="updateExpressAction">
+        </action>
     </package>
 </struts>
