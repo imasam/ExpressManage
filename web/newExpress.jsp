@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page import="dao.Dao" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %><%--
@@ -14,9 +15,12 @@
 </head>
 <body>
 <div>
-    <form action="NewExpress.action" method="post">
+    <form action="newExpress.action" method="post">
+        <div align="left">
         <p>寄件人姓名：<input type="text" name="fromName"></p>
         <p>寄件人电话：<input type="text" name="fromTel"></p>
+            <s:hidden>寄件人账号：<input type="text" name="fromAccount"
+                value="<%=session.getAttribute("account")%>"></s:hidden>
         <p>寄件人地址：
             <select id="fromProvince">
             <option value="">省份</option>
@@ -26,7 +30,8 @@
             </select>
         </p>
         <p>寄件人详细地址：<input type="text" name="fromAddr"></p>
-
+        </div>
+        <div align="right">
         <p>收件人姓名：<input type="text" name="toName"></p>
         <p>收件人电话：<input type="text" name="toTel"></p>
         <p>收件人地址：
@@ -37,8 +42,10 @@
                 <option value="">城市</option>
             </select></p>
         <p>收件人详细地址：<input type="text" name="toAddr"></p>
-
+        </div>
+        <div align="center">
         <input type="submit" value="确认寄件">
+        </div>
     </form>
 </div>
 

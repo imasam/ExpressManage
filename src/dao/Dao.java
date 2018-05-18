@@ -175,4 +175,25 @@ public class Dao {
         session.close();
         return true;
     }
+
+    /*
+     * 查找指定城市的快递员
+     */
+    public List<CourierInfo> getCouriers(String _city){
+        List<CourierInfo> couriers = new ArrayList<>();
+
+        Session session = HibernateSessionFactory.getSession();
+        String hql = "from CourierInfo where city =?";
+        Query query = session.createQuery(hql);
+        query.setString(0,_city);
+        List list = query.list();
+
+        for(int i = 0;i < list.size();i++){
+            CourierInfo courier = (CourierInfo) list.get(i);
+            couriers.add(courier);
+        }
+
+        session.close();
+        return couriers;
+    }
 }

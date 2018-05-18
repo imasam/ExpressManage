@@ -50,10 +50,10 @@
     <br><br>
   </div>
   <div id = "chooseDiv" align="center">
-    <a href="newExpress">我要寄件</a><br>
-    <a href="queryExpress">物流查询</a><br>
-    <a href="userExpressHistory">寄件记录</a><br>
-    <a href="courierExpressistory">收件查询</a><br>
+    <a href="newExpress.jsp">我要寄件</a><br>
+    <a href="queryExpress.jsp">物流查询</a><br>
+    <a href="userExpressHistory.jsp">寄件记录</a><br>
+    <a href="courierExpressistory.jsp">收件查询</a><br>
   </div>
   </body>
 </html>

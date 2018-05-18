@@ -10,7 +10,9 @@
         </action>
 
         <action name="register" class="action.RegisterAction">
+        </action>
 
+        <action name="newExpress" class="action.NewExpressAction">
         </action>
 
 
