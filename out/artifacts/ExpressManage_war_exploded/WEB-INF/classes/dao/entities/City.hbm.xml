@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dao.entities.City" table="city" schema="express">
+        <id name="city">
+            <column name="city" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="province">
+            <column name="province" sql-type="varchar(10)" length="10"/>
+        </property>
+    </class>
+</hibernate-mapping>

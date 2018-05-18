@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dao.entities.ExpressInfo" table="express_info" schema="express">
+        <id name="expressNo">
+            <column name="express_no" sql-type="char(50)" length="50"/>
+        </id>
+        <property name="fromName">
+            <column name="from_name" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="fromTel">
+            <column name="from_tel" sql-type="varchar(11)" length="11"/>
+        </property>
+        <property name="fromArea">
+            <column name="from_area" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="fromAccount">
+            <column name="from_account" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="toName">
+            <column name="to_name" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="toTel">
+            <column name="to_tel" sql-type="varchar(11)" length="11"/>
+        </property>
+        <property name="toArea">
+            <column name="to_area" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="courierAccount">
+            <column name="courier_account" sql-type="varchar(20)" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

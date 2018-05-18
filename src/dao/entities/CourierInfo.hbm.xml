@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dao.entities.CourierInfo" table="courier_info" schema="express">
+        <id name="account">
+            <column name="account" sql-type="varchar(20)" length="20"/>
+        </id>
+        <property name="password">
+            <column name="password" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="city">
+            <column name="city" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="tel">
+            <column name="tel" sql-type="varchar(11)" length="11"/>
+        </property>
+    </class>
+</hibernate-mapping>
