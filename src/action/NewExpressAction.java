@@ -48,7 +48,7 @@ public class NewExpressAction {
         // 随机指派快递员
         List<CourierInfo> couriers = Dao.instance().getCouriers(fromCity);
         Random random = new Random();
-        int choice = random.nextInt(couriers.size() - 1);
+        int choice = random.nextInt(couriers.size());
 
         succeed = Dao.instance().addExpress(expressNo,
                 fromName,fromTel,fromArea,fromAccount,

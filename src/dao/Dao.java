@@ -269,7 +269,7 @@ public class Dao {
 
         RouteInfo rt = new RouteInfo();
         rt.setExpressNo(_expressNo);
-        rt.setInfo(_info + "#");
+        rt.setInfo(_info);
         rt.setTime(_time);
 
         Transaction tran = session.beginTransaction();
