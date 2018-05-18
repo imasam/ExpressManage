@@ -26,12 +26,12 @@
 %>
 <body>
 <%@ include file="header.jsp" %>
-<form action="updateLogistics.action" method="post">
+<form action="updateExpress.action" method="post">
     <div>
         <p>快递单号：<input name="expressNo" type="text"></p>
         <p>更新时间：
             <input name="time" type="datetime-local" value="<%=
-            new Timestamp(System.currentTimeMillis()).toString().substring(0,19)%>">
+            new Timestamp(System.currentTimeMillis()).toString()%>">
         </p>
         <p>物流信息：<textarea name="info"></textarea></p>
         <p><input type="submit" value="更新信息"></p>
