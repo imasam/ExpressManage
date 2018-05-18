@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <header>
-    <div align="right"><a href="index.jsp">主页</a></div>
+    <div align="left"><a href="index.jsp">主页</a></div>
 </header>
 </html>

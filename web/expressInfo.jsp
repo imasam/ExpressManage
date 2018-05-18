@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.entities.RouteInfo" %>
-<%@ page import="dao.Dao" %><%--
+<%@ page import="dao.Dao" %>
+<%@ page import="dao.entities.ExpressInfo" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2018/5/18
@@ -16,8 +17,9 @@
 <%@ include file="header.jsp" %>
 <%
     String expressNo = request.getParameter("expressNo");
-    RouteInfo express = Dao.instance().queryExpress(expressNo);
+    ExpressInfo express = Dao.instance().queryExpress(expressNo);
 
+    System.out.println(expressNo);
     System.out.println(express.getExpressNo());
 %>
 <table>
@@ -27,18 +29,18 @@
         <th>时间</th>
         <th>物流信息</th>
     </tr>
-    <%
-        for(int i=0; i<infos.size(); i++) {
-            RouteInfo ei = infos.get(i);
-    %>
+    <%--<%--%>
+        <%--for(int i=0; i<infos.size(); i++) {--%>
+            <%--RouteInfo ei = infos.get(i);--%>
+    <%--%>--%>
     <tr>
-        <td><%=i+1%></td>
-        <td><%=ei.getRouteInfoPK().getTime().toString().substring(0,19)%></td>
-        <td><%=ei.getInfo()%></td>
+        <td><%=express.getToName()%></td>
+        <%--<td><%=ei.getRouteInfoPK().getTime().toString().substring(0,19)%></td>--%>
+        <%--<td><%=ei.getInfo()%></td>--%>
     </tr>
-    <%
-        }
-    %>
+    <%--<%--%>
+        <%--}--%>
+    <%--%>--%>
 </table>
 </body>
 </html>

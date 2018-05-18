@@ -202,8 +202,8 @@ public class Dao {
     /*
      * 查找指定快递员的所有快递
      */
-    public List<ExpressInfo> getCourierExpresses(String _courierAccount){
-        List<ExpressInfo> courierExpresses = new ArrayList<>();
+    public ArrayList<ExpressInfo> getCourierExpresses(String _courierAccount){
+        ArrayList<ExpressInfo> courierExpresses = new ArrayList<>();
 
         Session session = HibernateSessionFactory.getSession();
         String hql = "from ExpressInfo where courierAccount = ?";
@@ -223,11 +223,11 @@ public class Dao {
     /*
      * 查找指定用户的所有快递
      */
-    public List<ExpressInfo> getUserExpresses(String _userAccount){
-        List<ExpressInfo> userExpresses = new ArrayList<>();
+    public ArrayList<ExpressInfo> getUserExpresses(String _userAccount){
+        ArrayList<ExpressInfo> userExpresses = new ArrayList<>();
 
         Session session = HibernateSessionFactory.getSession();
-        String hql = "from ExpressInfo where fromAccount = ?";
+        String hql = "from ExpressInfo where fromAccount = ? ";
         Query query = session.createQuery(hql);
         query.setString(0,_userAccount);
         List list = query.list();
