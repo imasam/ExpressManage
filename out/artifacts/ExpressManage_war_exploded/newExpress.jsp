@@ -16,8 +16,9 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<div align="center">
+<div align="center"  style="float:left;  width:100%; height:200px;margin-top:0px;">
     <form action="newExpress.action" method="post">
+        <div style="float:left; width:50%; height:200px;">
         <p>寄件人姓名：<input type="text" name="fromName"></p>
         <p>寄件人电话：<input type="text" name="fromTel"></p>
             <p hidden>寄件人账号：<input type="text" name="fromAccount"
@@ -31,7 +32,8 @@
             </select>
         </p>
         <p>寄件人详细地址：<input type="text" name="fromAddr"></p>
-
+        </div>
+        <div style="width:50%;height:200px; float:right;">
         <p>收件人姓名：<input type="text" name="toName"></p>
         <p>收件人电话：<input type="text" name="toTel"></p>
         <p>收件人地址：
@@ -42,6 +44,7 @@
                 <option value="">城市</option>
             </select></p>
         <p>收件人详细地址：<input type="text" name="toAddr"></p>
+        </div>
         <input type="submit" value="确认寄件">
     </form>
 </div>
