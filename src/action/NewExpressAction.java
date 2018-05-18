@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
+import java.sql.Timestamp;
 
 public class NewExpressAction {
     private String fromName;
@@ -29,7 +30,7 @@ public class NewExpressAction {
         String fromArea = fromCity + " " + fromAddr;
         String toArea = toCity + " " + toAddr;
         // 随机生成单号
-        String expressNo = "0123" + fromAccount;
+        String expressNo = "01234" + fromAccount;
         // 随机指派快递员
         List<CourierInfo> couriers = Dao.instance().getCouriers(fromCity);
         int choice = 1;
@@ -44,8 +45,13 @@ public class NewExpressAction {
         PrintWriter out = response.getWriter();
 
         if(succeed) {
+            Timestamp currentT = new Timestamp(System.currentTimeMillis());
+
             out.print("<script>alert('寄件成功'); " +
-                    "window.location='login.jsp' </script>");
+                    "window.location='index.jsp' </script>");
+            Dao.instance().updateRoute(expressNo,
+                    "已被快递员" + couriers.get(choice).getAccount() + "收件",
+                    currentT);
         }
         /*
         else {

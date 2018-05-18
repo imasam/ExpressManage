@@ -15,6 +15,10 @@
         <action name="newExpress" class="action.NewExpressAction">
         </action>
 
+        <action name="queryExpress" class="action.QueryExpressAction">
+            <result name="success">/expressInfo.jsp</result>
+        </action>
+
 
     </package>
 </struts>

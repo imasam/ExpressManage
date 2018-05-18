@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import javax.security.auth.login.Configuration;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -195,5 +196,86 @@ public class Dao {
 
         session.close();
         return couriers;
+    }
+
+
+    /*
+     * 查找指定快递员的所有快递
+     */
+    public List<ExpressInfo> getCourierExpresses(String _courierAccount){
+        List<ExpressInfo> courierExpresses = new ArrayList<>();
+
+        Session session = HibernateSessionFactory.getSession();
+        String hql = "from ExpressInfo where courierAccount = ?";
+        Query query = session.createQuery(hql);
+        query.setString(0,_courierAccount);
+        List list = query.list();
+
+        for(int i = 0;i < list.size();i++){
+            ExpressInfo express = (ExpressInfo) list.get(i);
+            courierExpresses.add(express);
+        }
+
+        session.close();
+        return courierExpresses;
+    }
+
+    /*
+     * 查找指定用户的所有快递
+     */
+    public List<ExpressInfo> getUserExpresses(String _userAccount){
+        List<ExpressInfo> userExpresses = new ArrayList<>();
+
+        Session session = HibernateSessionFactory.getSession();
+        String hql = "from ExpressInfo where fromAccount = ?";
+        Query query = session.createQuery(hql);
+        query.setString(0,_userAccount);
+        List list = query.list();
+
+        for(int i = 0;i < list.size();i++){
+            ExpressInfo express = (ExpressInfo) list.get(i);
+            userExpresses.add(express);
+        }
+
+        session.close();
+        return userExpresses;
+    }
+
+    /*
+     * 查找指定单号的快递
+     */
+    public RouteInfo queryExpress(String _expressNo){
+        RouteInfo express = new RouteInfo();
+
+        Session session = HibernateSessionFactory.getSession();
+        String hql = "from RouteInfo where expressNo = ?";
+        Query query = session.createQuery(hql);
+        query.setString(0,_expressNo);
+        List list = query.list();
+
+        for(int i = 0;i < list.size();i++){
+            express = (RouteInfo) list.get(i);
+        }
+
+        session.close();
+        return express;
+    }
+
+    /*
+     * 更新快递信息
+     */
+    public void updateRoute(String _expressNo,String _info,Timestamp _time){
+        Session session = HibernateSessionFactory.getSession();
+
+        RouteInfo rt = new RouteInfo();
+        rt.setExpressNo(_expressNo);
+        rt.setInfo(_info + "#");
+        rt.setTime(_time);
+
+        Transaction tran = session.beginTransaction();
+        session.saveOrUpdate(rt);
+        tran.commit();
+
+        session.close();
     }
 }

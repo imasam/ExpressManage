@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="dao.entities.ExpressInfo" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2018/5/18
@@ -8,9 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>所有快递订单</title>
 </head>
 <body>
+<%
+    String account = session.getAttribute("account").toString();
+    System.out.println(account);
+%>
 
 </body>
 </html>

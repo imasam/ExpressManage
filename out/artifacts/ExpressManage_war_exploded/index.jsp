@@ -53,7 +53,7 @@
     <a href="newExpress.jsp">我要寄件</a><br>
     <a href="queryExpress.jsp">物流查询</a><br>
     <a href="userExpressHistory.jsp">寄件记录</a><br>
-    <a href="courierExpressistory.jsp">收件查询</a><br>
+    <a href="courierExpressHistory.jsp">更新快递</a><br>
   </div>
   </body>
 </html>
