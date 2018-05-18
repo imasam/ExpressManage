@@ -6,4 +6,6 @@
     <bean name="loginAction" class="action.LoginAction" scope="prototype" />
     <bean name="registerAction" class="action.RegisterAction" scope="prototype" />
     <bean name="newExpressAction" class="action.NewExpressAction" scope="prototype" />
+    <bean name="queryExpressAction" class="action.QueryExpressAction" scope="prototype" />
+    <bean name="updateExpressAction" class="action.UpdateExpressAction" scope="prototype" />
 </beans>
