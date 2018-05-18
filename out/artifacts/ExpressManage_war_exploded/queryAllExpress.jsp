@@ -30,7 +30,7 @@
 <body>
 <%@include file="header.jsp" %>
 <table>
-    <caption>最近100条订单</caption>
+    <caption>最近订单</caption>
     <tr>
         <th>ID</th>
         <th>时间</th>

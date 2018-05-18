@@ -242,7 +242,7 @@ public class Dao {
     }
 
     /*
-     * 查找指定单号的快递
+     * 查找指定单号的物流信息
      */
     public ExpressInfo queryExpress(String _expressNo){
         ExpressInfo rts = new ExpressInfo();
@@ -262,7 +262,7 @@ public class Dao {
     }
 
     /*
-     * 更新快递信息
+     * 更新物流信息
      */
     public void updateRoute(String _expressNo,String _info,Timestamp _time){
         Session session = HibernateSessionFactory.getSession();
