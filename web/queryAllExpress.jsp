@@ -25,6 +25,7 @@
 %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>所有快递订单</title>
 </head>
 <body>

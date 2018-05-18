@@ -12,6 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>物流信息</title>
 </head>
 <body>
@@ -23,7 +24,6 @@
 <table align="center">
     <caption>单号：<%=expressNo%></caption>
     <tr>
-        <th>ID</th>
         <th>时间</th>
         <th>物流信息</th>
     </tr>
@@ -32,7 +32,6 @@
             RouteInfo ri = rInfo.get(i);
     %>
     <tr>
-        <td><%=ri.getId()%></td>
         <td><%=ri.getTime().toString().substring(0,19)%></td>
         <td><%=ri.getInfo()%></td>
     </tr>

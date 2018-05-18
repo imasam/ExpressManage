@@ -11,16 +11,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>寄件</title>
 </head>
 <body>
-<div>
+<%@ include file="header.jsp" %>
+<div align="center">
     <form action="newExpress.action" method="post">
-        <div align="left">
         <p>寄件人姓名：<input type="text" name="fromName"></p>
         <p>寄件人电话：<input type="text" name="fromTel"></p>
-            <s:hidden>寄件人账号：<input type="text" name="fromAccount"
-                value="<%=session.getAttribute("account")%>"></s:hidden>
+            <p hidden>寄件人账号：<input type="text" name="fromAccount"
+                value="<%=session.getAttribute("account")%>"></p>
         <p>寄件人地址：
             <select id="fromProvince">
             <option value="">省份</option>
@@ -30,8 +31,7 @@
             </select>
         </p>
         <p>寄件人详细地址：<input type="text" name="fromAddr"></p>
-        </div>
-        <div align="right">
+
         <p>收件人姓名：<input type="text" name="toName"></p>
         <p>收件人电话：<input type="text" name="toTel"></p>
         <p>收件人地址：
@@ -42,13 +42,9 @@
                 <option value="">城市</option>
             </select></p>
         <p>收件人详细地址：<input type="text" name="toAddr"></p>
-        </div>
-        <div align="center">
         <input type="submit" value="确认寄件">
-        </div>
     </form>
 </div>
-
 <script type="text/javascript">
     /*
      * 获取省份列表

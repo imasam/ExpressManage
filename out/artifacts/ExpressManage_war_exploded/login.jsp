@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>登录</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <div align="center">
     <form action="login.action" method="post">
         <p>
@@ -22,7 +24,7 @@
         <p>账号：<input type="text" name="account"><br></p>
         <p>密码：<input type="password" name="password"><br></p>
         <p><input type="submit" value="登录"></p>
-        <p><a href="register.jsp">点此注册</a></p>
+        <a href="register.jsp" style="font-size: x-small">点此注册</a>
     </form>
 </div>
 </body>

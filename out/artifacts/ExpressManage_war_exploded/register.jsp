@@ -10,9 +10,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>注册</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <div align="center">
     <form action="register.action" method="post">
         <p>
@@ -26,8 +28,8 @@
         <p>*密码：<input type="password" name="password"><br></p>
 
         <section id="courier-info">
-            <p>姓名（*快递员必填）：<input name="name" type="text"></p>
-            <p>地区（*快递员必填）：
+            <p>*姓名：<input name="name" type="text"></p>
+            <p>*地区：
                 <select id="province">
                     <option value="">省份</option>
                 </select>
@@ -35,7 +37,7 @@
                     <option value="">城市</option>
                 </select>
             </p>
-            <p>手机（*快递员必填）：<input name="tel" type="tel"></p>
+            <p>*手机：<input name="tel" type="tel"></p>
         </section>
         <p><input type="submit" value="注册"></p>
     </form>

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>主页</title>
   </head>
   <%
@@ -43,6 +44,7 @@
     }
   %>
   <body>
+  <%@ include file="header.jsp" %>
   <div id = "headerDiv" align="right">
     <%=headerContent%>
     <br><br>
