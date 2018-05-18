@@ -1,14 +1,11 @@
 package action;
 
 import dao.Dao;
-import dao.entities.CourierInfo;
 import dao.entities.ExpressInfo;
-import dao.entities.RouteInfo;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import java.util.List;
 
 public class QueryExpressAction {
     private String expressNo;

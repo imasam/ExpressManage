@@ -264,7 +264,7 @@ public class Dao {
     /*
      * 更新物流信息
      */
-    public void updateRoute(String _expressNo,String _info,Timestamp _time){
+    public boolean updateRoute(String _expressNo,String _info,Timestamp _time) {
         Session session = HibernateSessionFactory.getSession();
 
         RouteInfo rt = new RouteInfo();
@@ -273,9 +273,14 @@ public class Dao {
         rt.setTime(_time);
 
         Transaction tran = session.beginTransaction();
-        session.saveOrUpdate(rt);
-        tran.commit();
 
-        session.close();
+        try {
+            session.saveOrUpdate(rt);
+            tran.commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

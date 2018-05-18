@@ -6,8 +6,6 @@
     <session-factory>
         <property name="connection.url">jdbc:mariadb://localhost:3306/express</property>
         <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
 
         <mapping resource="dao/entities/City.hbm.xml"/>
         <mapping class="dao.entities.City"/>

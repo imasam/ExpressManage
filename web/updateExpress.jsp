@@ -1,7 +1,8 @@
 <%@ page import="dao.entities.ExpressInfo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dao.Dao" %>
-<%@ page import="com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader" %><%--
+<%@ page import="com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader" %>
+<%@ page import="java.sql.Timestamp" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2018/5/18
@@ -11,43 +12,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>已收快递</title>
+    <title>更新物流</title>
 </head>
-<body>
 <%
-    String courierAccount = request.getParameter("account");
-    List<ExpressInfo> expresses = Dao.instance().getCourierExpresses(courierAccount);
+    String loginType = (String)session.getAttribute("loginType");
+    if(loginType == null){
+        out.print("<script>alert('请先登录！'); window.location='./login.jsp';</script>");
+        return;
+    }
+    else if(!loginType.equals("courier"))
+        out.print("<script>alert('您没有该权限！点击”确认“返回主页');" +
+                " window.location='./index.jsp';</script>");
 %>
-<div align="center">
-    <%
-        for(int i = 0;i < expresses.size();i++){
-            ExpressInfo express = (ExpressInfo) expresses.get(i);
-    %>
-    <form>
-        收件人姓名：<p><textarea name="title"style="BORDER-BOTTOM: 0px solid;
-                BORDER-LEFT: 0px solid;
-                BORDER-RIGHT: 0px solid;
-                BORDER-TOP: 0px solid;
-                vertical-align:middle;" readonly="readonly">
-        <%=express.getToName()%></textarea></p>
-        收件人电话：<p><textarea name="category" style="BORDER-BOTTOM: 0px solid;
-                 BORDER-LEFT: 0px solid;
-                  BORDER-RIGHT: 0px solid;
-                  BORDER-TOP: 0px solid;
-                  vertical-align:middle;" readonly="readonly" >
-        <%=express.getToTel()%></textarea></p>
-        收件人地址：<p><textarea name="content" style="BORDER-BOTTOM: 0px solid;
-                BORDER-LEFT: 0px solid;
-                BORDER-RIGHT: 0px solid;
-                BORDER-TOP: 0px solid;
-                vertical-align:middle;"readonly="readonly" >
-        <%=express.getToArea()%></textarea></p>
-        <hr>
-    </form>
-    <%
-        }
-    %>
-    <a href="index.jsp">点击跳转操作选择页面</a>
-</div>
+<body>
+<%@ include file="header.jsp" %>
+<form action="updateLogistics.action" method="post">
+    <div>
+        <p>快递单号：<input name="expressNo" type="text"></p>
+        <p>更新时间：
+            <input name="time" type="datetime-local" value="<%=
+            new Timestamp(System.currentTimeMillis()).toString().substring(0,19)%>">
+        </p>
+        <p>物流信息：<textarea name="info"></textarea></p>
+        <p><input type="submit" value="更新信息"></p>
+    </div>
+</form>
 </body>
 </html>

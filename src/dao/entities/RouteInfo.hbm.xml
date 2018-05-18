@@ -5,9 +5,12 @@
 <hibernate-mapping>
 
     <class name="dao.entities.RouteInfo" table="route_info" schema="express">
-        <id name="expressNo">
-            <column name="express_no" sql-type="varchar(10)" length="10"/>
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
         </id>
+        <property name="expressNo">
+            <column name="express_no" sql-type="varchar(10)" length="10"/>
+        </property>
         <property name="info">
             <column name="info" sql-type="tinytext"/>
         </property>

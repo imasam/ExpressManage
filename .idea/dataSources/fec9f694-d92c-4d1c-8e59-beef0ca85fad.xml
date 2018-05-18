@@ -1510,24 +1510,31 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="367" parent="333" name="PRIMARY">
+    <column id="367" parent="333" name="id">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="368" parent="333" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>express_no</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="368" parent="334" name="account">
+    <column id="369" parent="334" name="account">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="334" name="password">
+    <column id="370" parent="334" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="370" parent="334" name="PRIMARY">
+    <key id="371" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>account</ColNames>
       <Primary>1</Primary>

@@ -5,13 +5,14 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "route_info", schema = "express")
+@Table(name = "route_info", schema = "express", catalog = "")
 public class RouteInfo {
     private String expressNo;
     private String info;
     private Timestamp time;
+    private int id;
 
-    @Id
+    @Basic
     @Column(name = "express_no", nullable = false, length = 10)
     public String getExpressNo() {
         return expressNo;
@@ -41,12 +42,23 @@ public class RouteInfo {
         this.time = time;
     }
 
+    @Id
+    @Column(name = "id", nullable = false)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RouteInfo routeInfo = (RouteInfo) o;
-        return Objects.equals(expressNo, routeInfo.expressNo) &&
+        return id == routeInfo.id &&
+                Objects.equals(expressNo, routeInfo.expressNo) &&
                 Objects.equals(info, routeInfo.info) &&
                 Objects.equals(time, routeInfo.time);
     }
@@ -54,6 +66,6 @@ public class RouteInfo {
     @Override
     public int hashCode() {
 
-        return Objects.hash(expressNo, info, time);
+        return Objects.hash(expressNo, info, time, id);
     }
 }
