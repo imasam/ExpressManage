@@ -20,7 +20,6 @@
         </action>
 
         <action name="updateExpress" class="updateExpressAction">
-            <result name="success" type="redirect">/expressInfo.jsp</result>
         </action>
     </package>
 </struts>

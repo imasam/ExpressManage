@@ -10,31 +10,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>快递信息</title>
+    <title>物流信息</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <%
     String expressNo = request.getParameter("expressNo");
     RouteInfo express = Dao.instance().queryExpress(expressNo);
 
     System.out.println(express.getExpressNo());
 %>
-<form>
-    快递单号：<p><textarea name="title"style="BORDER-BOTTOM: 0px solid;
-                BORDER-LEFT: 0px solid;
-                BORDER-RIGHT: 0px solid;
-                BORDER-TOP: 0px solid;
-                vertical-align:middle;" readonly="readonly"><%=express.getExpressNo()%></textarea></p>
-    物流信息：<p><textarea name="category" style="BORDER-BOTTOM: 0px solid;
-                 BORDER-LEFT: 0px solid;
-                  BORDER-RIGHT: 0px solid;
-                  BORDER-TOP: 0px solid;
-                  vertical-align:middle;" readonly="readonly" ><%=express.getInfo()%></textarea></p>
-    时间：<p><textarea name="content" style="BORDER-BOTTOM: 0px solid;
-                BORDER-LEFT: 0px solid;
-                BORDER-RIGHT: 0px solid;
-                BORDER-TOP: 0px solid;
-                vertical-align:middle;"readonly="readonly" ><%=express.getTime()%></textarea></p>
-</form>
+<table>
+    <caption>单号：<%=expressNo%></caption>
+    <tr>
+        <th>ID</th>
+        <th>时间</th>
+        <th>物流信息</th>
+    </tr>
+    <%
+        for(int i=0; i<infos.size(); i++) {
+            RouteInfo ei = infos.get(i);
+    %>
+    <tr>
+        <td><%=i+1%></td>
+        <td><%=ei.getRouteInfoPK().getTime().toString().substring(0,19)%></td>
+        <td><%=ei.getInfo()%></td>
+    </tr>
+    <%
+        }
+    %>
+</table>
 </body>
 </html>

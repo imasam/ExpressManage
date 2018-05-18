@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>物流服务</title>
+    <title>主页</title>
   </head>
   <%
     String loginType = "",account = "",password = "";
@@ -26,7 +26,14 @@
     }
 
     String headerContent;
-    if(Dao.instance().login(loginType,account,password)){
+    if(Dao.instance().login(loginType,account,password)) {
+      session.setAttribute("loginType", loginType);
+      session.setAttribute("account", account);
+    }
+
+    // session中存在账号则登录
+    account = (String)session.getAttribute("account");
+    if(account != null){
         headerContent=  "<label>欢迎，" + account + "</label>"
                 +"(<a href = 'login.jsp'>注销</a>)";
     }
@@ -34,15 +41,6 @@
       headerContent=  "<a href = 'login.jsp'>登录</a>"
               +"|<a href = 'register.jsp'>注册</a>";
     }
-
-
-    for(Cookie cookie:cookies){
-        System.out.println(cookie.getName()+":"+cookie.getValue());
-      System.out.println("=======================");
-    }
-
-    System.out.println(Dao.instance().login(loginType,account,password));
-    System.out.println("type="+loginType+"\n"+"account="+account+"\n"+"pwd="+password);
   %>
   <body>
   <div id = "headerDiv" align="right">
@@ -52,8 +50,8 @@
   <div id = "chooseDiv" align="center">
     <a href="newExpress.jsp">我要寄件</a><br>
     <a href="queryExpress.jsp">物流查询</a><br>
-    <a href="userExpressHistory.jsp">寄件记录</a><br>
-    <a href="courierExpressHistory.jsp">更新快递</a><br>
+    <a href="userExpressHistory.jsp">物流记录</a><br>
+    <a href="courierExpressHistory.jsp">更新物流</a><br>
   </div>
   </body>
 </html>

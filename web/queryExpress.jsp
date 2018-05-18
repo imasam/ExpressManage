@@ -11,11 +11,11 @@
     <title>查询快件</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <div>
     <form action="queryExpress.action">
-        <p>快递单号</p>
-        <input name="expressNo" type="text"><br>
-        <input type="submit" value="查询">
+        <p>物流单号：input name="expressNo" type="text"><br></p>
+        <p><input type="submit" value="查询"></p>
     </form>
 </div>
 </body>

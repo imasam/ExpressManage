@@ -23,6 +23,20 @@ public class NewExpressAction {
     private String toAddr;
     //private String courierAccount;
 
+    /*
+     * 产生一个随机的字符串
+     */
+    private String randomString(int length) {
+        String str = "abcdefgh0123456789";
+        Random random = new Random();
+        StringBuilder buf = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int num = random.nextInt(18);
+            buf.append(str.charAt(num));
+        }
+        return buf.toString();
+    }
+
     public String execute() throws Exception{
         boolean succeed = false;
 
@@ -30,10 +44,11 @@ public class NewExpressAction {
         String fromArea = fromCity + " " + fromAddr;
         String toArea = toCity + " " + toAddr;
         // 随机生成单号
-        String expressNo = "01234" + fromAccount;
+        String expressNo = randomString(10);
         // 随机指派快递员
         List<CourierInfo> couriers = Dao.instance().getCouriers(fromCity);
-        int choice = 1;
+        Random random = new Random();
+        int choice = random.nextInt(couriers.size() - 1);
 
         succeed = Dao.instance().addExpress(expressNo,
                 fromName,fromTel,fromArea,fromAccount,
@@ -50,15 +65,9 @@ public class NewExpressAction {
             out.print("<script>alert('寄件成功'); " +
                     "window.location='index.jsp' </script>");
             Dao.instance().updateRoute(expressNo,
-                    "已被快递员" + couriers.get(choice).getAccount() + "收件",
+                    "安排快递员" + couriers.get(choice).getAccount() + "收件",
                     currentT);
         }
-        /*
-        else {
-            out.print("<script>alert('注册失败'); " +
-                    "window.location='register.jsp' </script>");
-        }
-        */
         out.flush();
         out.close();
 
