@@ -3,4 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean name="loginAction" class="action.LoginAction" scope="prototype" />
+    <bean name="registerAction" class="action.RegisterAction" scope="prototype" />
+    <bean name="newExpressAction" class="action.NewExpressAction" scope="prototype" />
 </beans>
