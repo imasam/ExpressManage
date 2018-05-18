@@ -244,19 +244,18 @@ public class Dao {
     /*
      * 查找指定单号的物流信息
      */
-    public ExpressInfo queryExpress(String _expressNo){
-        ExpressInfo rts = new ExpressInfo();
+    public ArrayList<RouteInfo> queryExpress(String _expressNo){
+        ArrayList<RouteInfo> rts = new ArrayList<>();
 
         Session session = HibernateSessionFactory.getSession();
-        String hql = "from ExpressInfo where expressNo = ?";
+        String hql = "from RouteInfo where expressNo = ? order by time";
         Query query = session.createQuery(hql);
         query.setString(0,_expressNo);
         List list = query.list();
 
-        for(int i = 0;i < list.size();i++){
-            rts = (ExpressInfo) list.get(i);
+        for(int i = 0;i < list.size();i++) {
+            rts.add((RouteInfo) list.get(i));
         }
-
         session.close();
         return rts;
     }

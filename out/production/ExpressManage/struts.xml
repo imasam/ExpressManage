@@ -16,7 +16,7 @@
         </action>
 
         <action name="queryExpress" class="queryExpressAction">
-            <result name="success" type="redirect">/expressInfo.jsp</result>
+            <result name="success" type="redirect">/expressInfo.jsp?expressNo=${expressNo}</result>
         </action>
 
         <action name="updateExpress" class="updateExpressAction">

@@ -49,8 +49,8 @@
   </div>
   <div id = "chooseDiv" align="center">
     <a href="newExpress.jsp">我要寄件</a><br>
-    <a href="queryExpress.jsp">物流查询</a><br>
     <a href="queryAllExpress.jsp">物流记录</a><br>
+    <a href="queryExpress.jsp">物流查询</a><br>
     <a href="updateExpress.jsp">更新物流</a><br>
   </div>
   </body>

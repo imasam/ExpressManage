@@ -12,7 +12,7 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<div>
+<div align="center">
     <form action="queryExpress.action">
         <p>物流单号：<input name="expressNo" type="text"><br></p>
         <p><input type="submit" value="查询"></p>
