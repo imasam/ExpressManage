@@ -14,6 +14,16 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>寄件</title>
 </head>
+<%
+    String loginType = (String)session.getAttribute("loginType");
+    if(loginType == null){
+        out.print("<script>alert('请先登录！'); window.location='./login.jsp';</script>");
+        return;
+    }
+    else if(loginType.equals("courier"))
+        out.print("<script>alert('您没有该权限！点击”确认“返回主页');" +
+                " window.location='./index.jsp';</script>");
+%>
 <body>
 <%@ include file="header.jsp" %>
 <div align="center"  style="float:left;  width:100%; height:200px;margin-top:0px;">

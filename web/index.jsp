@@ -45,7 +45,7 @@
   %>
   <body>
   <%@ include file="header.jsp" %>
-  <div id = "headerDiv" align="right">
+  <div id = "headerDiv" align="right" style="font-size: small">
     <%=headerContent%>
     <br><br>
   </div>

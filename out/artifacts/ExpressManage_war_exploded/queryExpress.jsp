@@ -11,6 +11,13 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>查询快件</title>
 </head>
+<%
+    String loginType = (String)session.getAttribute("loginType");
+    if(loginType == null){
+        out.print("<script>alert('请先登录！'); window.location='./login.jsp';</script>");
+        return;
+    }
+%>
 <body>
 <%@ include file="header.jsp" %>
 <div align="center">

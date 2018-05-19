@@ -28,6 +28,13 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>所有快递订单</title>
 </head>
+<%
+    String loginType1 = (String)session.getAttribute("loginType");
+    if(loginType1 == null){
+        out.print("<script>alert('请先登录！'); window.location='./login.jsp';</script>");
+        return;
+    }
+%>
 <body>
 <%@include file="header.jsp" %>
 <table>
