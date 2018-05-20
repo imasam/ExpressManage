@@ -152,12 +152,6 @@ public class Dao {
                               String _courierAccount) {
         Session session = HibernateSessionFactory.getSession();
 
-        /*
-        // 判断是否存在同单号快递
-        if(session.get(CourierInfo.class,_expressNo) != null)
-            return false;
-        */
-
         ExpressInfo express = new ExpressInfo();
         express.setExpressNo(_expressNo);
         express.setFromName(_fromName);
